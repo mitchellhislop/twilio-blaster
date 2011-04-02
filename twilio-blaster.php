@@ -309,7 +309,7 @@ class TwilioBlaster extends mtekk_admin
 					?>
 				</table>
 			</fieldset>
-			<fieldset id="twillio" class="<?php echo $this->unique_prefix;?>_options">
+			<fieldset id="bitly" class="<?php echo $this->unique_prefix;?>_options">
 				<h3><?php _e('Bit.ly', 'twilio_blaster'); ?></h3>
 				<table class="form-table">
 					<?php
