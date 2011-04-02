@@ -255,6 +255,7 @@ abstract class mtekk_admin
 			$this->message();
 			return false;
 		}
+		return true;
 	}
 	/**
 	 * A prototype function. End user should override if they need this feature.
