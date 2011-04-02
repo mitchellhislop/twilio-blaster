@@ -28,7 +28,7 @@ Author URI: http://www.mitchellhislop.com
 if(version_compare(phpversion(), '5.2.0', '<'))
 {
 	//Only purpose of this function is to echo out the PHP version error
-	function bcn_phpold()
+	function twblast_phpold()
 	{
 		printf('<div class="error"><p>' . __('Your PHP version is too old, please upgrade to a newer version. Your version is %s, Twilio Blaster requires %s', 'twilio_blaster') . '</p></div>', phpversion(), '5.2.0');
 	}
