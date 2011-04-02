@@ -113,7 +113,7 @@ class TwilioBlaster extends mtekk_admin
 	{
 		global $wpdb;
 		parent::install();
-		$table_name = $wpdb->prefix . '_' . $this->unique_prefix;
+		$table_name = $wpdb->prefix . $this->unique_prefix;
 		if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name)
 		{
 			$sql = "CREATE TABLE " . $table_name . " (
