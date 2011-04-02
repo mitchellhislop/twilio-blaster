@@ -315,7 +315,6 @@ class TwilioBlaster extends mtekk_admin
 					<?php
 						$this->input_text(__('Login', 'twilio_blaster'), 'sBitlyLogin', '30', false, __('Bit.ly account/login name.', 'twilio_blaster'));
 						$this->input_text(__('API Key', 'twilio_blaster'), 'sBitlyAppKey', '30', false, __('Bit.ly API key.', 'twilio_blaster'));
-						$this->input_text(__('Auth Token', 'twilio_blaster'), 'sAuthToken', '30', false, __('Twillio auth token.', 'twilio_blaster'));
 					?>
 				</table>
 			</fieldset>
