@@ -309,13 +309,12 @@ class TwilioBlaster extends mtekk_admin
 					?>
 				</table>
 			</fieldset>
-			<fieldset id="twillio" class="<?php echo $this->unique_prefix;?>_options">
+			<fieldset id="bitly" class="<?php echo $this->unique_prefix;?>_options">
 				<h3><?php _e('Bit.ly', 'twilio_blaster'); ?></h3>
 				<table class="form-table">
 					<?php
 						$this->input_text(__('Login', 'twilio_blaster'), 'sBitlyLogin', '30', false, __('Bit.ly account/login name.', 'twilio_blaster'));
 						$this->input_text(__('API Key', 'twilio_blaster'), 'sBitlyAppKey', '30', false, __('Bit.ly API key.', 'twilio_blaster'));
-						$this->input_text(__('Auth Token', 'twilio_blaster'), 'sAuthToken', '30', false, __('Twillio auth token.', 'twilio_blaster'));
 					?>
 				</table>
 			</fieldset>
