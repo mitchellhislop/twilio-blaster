@@ -288,9 +288,9 @@ abstract class mtekk_admin
 		//Do a nonce check, prevent malicious link/form problems
 		check_admin_referer($this->unique_prefix . '_options-options');
 		//Update local options from database
-		$this->opt = $this->get_option($this->unique_prefix . '_options');
+		$this->opt = get_option($this->unique_prefix . '_options');
 		//Update our backup options
-		$this->update_option($this->unique_prefix . '_options_bk', $this->opt);
+		update_option($this->unique_prefix . '_options_bk', $this->opt);
 		//Grab our incomming array (the data is dirty)
 		$input = $_POST[$this->unique_prefix . '_options'];
 		//Loop through all of the existing options (avoids random setting injection)
@@ -340,7 +340,7 @@ abstract class mtekk_admin
 			}
 		}
 		//Commit the option changes
-		$this->update_option($this->unique_prefix . '_options', $this->opt);
+		update_option($this->unique_prefix . '_options', $this->opt);
 		//Check if known settings match attempted save
 		if(count(array_diff_key($input, $this->opt)) == 0)
 		{
