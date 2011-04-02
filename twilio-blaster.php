@@ -73,8 +73,7 @@ class TwilioBlaster extends mtekk_admin
 	{
 		//We set the plugin basename here, could manually set it, but this is for demonstration purposes
 		$this->plugin_basename = plugin_basename(__FILE__);
-		//Add our
-		//add_action('admin_menu', array($this, 'onAdminMenu'));
+		add_action('admin_menu', array($this, 'onAdminMenu'));
 		add_action('edit_post' , array($this, 'saveMeta'));
 		add_action('save_post', array($this, 'saveMeta'));
 		add_action('publish_post' , array($this, 'saveMeta'));
