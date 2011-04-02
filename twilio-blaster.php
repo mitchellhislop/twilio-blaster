@@ -328,4 +328,4 @@ class TwilioBlaster extends mtekk_admin
 	}
 }
 //Let's make an instance of our object takes care of everything
-TwilioBlaster = new TwilioBlaster;
+$TwilioBlaster = new TwilioBlaster;
