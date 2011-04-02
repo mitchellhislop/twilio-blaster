@@ -137,7 +137,7 @@ class TwilioBlaster extends mtekk_admin
 			add_menu_page('Twilio Text Blaster',
 							 'Twilio Text Blaster',
 							 'activate_plugins',
-							 'twilio_blaster',
+							 'twilio_text_blaster',
 							 array($this, 'printAdminPage'));
 			
 			add_meta_box('twilio_text_blast',
