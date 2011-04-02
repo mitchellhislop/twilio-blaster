@@ -109,6 +109,22 @@ class TwilioBlaster extends mtekk_admin
 			wp_die(__('Insufficient privileges to proceed.', $this->identifier));
 		}
 	}
+	function install()
+	{
+		global $wpdb;
+		parent::install();
+		$table_name = $wpdb->prefix . '_' . $this->unique_prefix;
+		if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name)
+		{
+			$sql = "CREATE TABLE " . $table_name . " (
+				  id mediumint(9) NOT NULL AUTO_INCREMENT,
+				  phone mediumint(10) NOT NULL,
+				  UNIQUE KEY id (id)
+				);";
+			require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+			dbDelta($sql);
+		}
+	}
 	/**
 	 * Upgrades input options array, sets to $this->opt
 	 * 
