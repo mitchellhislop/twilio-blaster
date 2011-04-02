@@ -231,7 +231,7 @@ abstract class mtekk_admin
 	function version_check($version)
 	{
 		//Do a quick version check
-		if(version_compare($version, $this->version, '<'))
+		if(version_compare($version, $this->version, '<') && is_array($this->opt))
 		{
 			//Throw an error since the DB version is out of date
 			$this->message['error'][] = __('Your settings are out of date.', $this->identifier) . $this->admin_anchor('upgrade', __('Migrate the settings now.', $this->identifier), __('Migrate now.', $this->identifier));
