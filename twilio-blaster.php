@@ -26,7 +26,7 @@ Author URI: http://www.mitchellhislop.com
 */
 //Do a PHP version check, require 5.2 or newer
 if(version_compare(phpversion(), '5.2.0', '<'))
-
+{
 	//Only purpose of this function is to echo out the PHP version error
 	function bcn_phpold()
 	{
