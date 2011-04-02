@@ -1,46 +1,33 @@
 <?php
-if ((isset($_POST['name'])) && (strlen(trim($_POST['name'])) > 0)) {
-	$name = stripslashes(strip_tags($_POST['name']));
-}
-if ((isset($_POST['email'])) && (strlen(trim($_POST['email'])) > 0)) {
-	$email = stripslashes(strip_tags($_POST['email']));
-}
 if ((isset($_POST['phone'])) && (strlen(trim($_POST['phone'])) > 0)) {
 	$phone = stripslashes(strip_tags($_POST['phone']));
-} 
+}
+
 ob_start();
 
-$body = <<<BODYSTR
-Name: $name
-Email: $email
-Phone: $phone
-BODYSTR;
+//this next section is only for the idea of what we need to do.
 
-$to = 'someone@example.com';
-$email = 'email@example.com';
-$fromaddress = "you@example.com";
-$fromname = "Online Contact";
+include 'config.php';
+$dbconnect=mysql_connect('localhost', $mysql_user, $mysql_pass);
+if(!$dbconnect){
+	die('Could Not Connect:' .mysql_error());
+}
+mysql_select_db('twilio_app');
 
-require("phpmailer.php");
-
-$mail = new PHPMailer();
-
-$mail->From     = "mhislop@smcpros.com";
-$mail->FromName = "Contact Form";
-$mail->AddAddress("tolson+encyc@smcpros.com");
-
-
-$mail->WordWrap = 50;
-$mail->IsHTML(true);
-
-$mail->Subject  =  "Encyclopedia Downloaded";
-$mail->Body     =  $body;
-$mail->AltBody  =  $body;
-
-$mail->Send();
-
-
-
+$new_number=$_POST['phone_number'];	
+$number = ereg_replace("[^0-9]", "", $new_number );
+$dupecheck="select $new_number from numbers where active='1'";
+$result=mysql_query($dupecheck);
+if (mysql_num_rows($result) == 0){
+$query="INSERT INTO numbers (number, active) VALUES ('".mysql_real_escape_string($new_number)."','1')";
+echo $query;
+$query=mysql_query($query);
+//redirect to thank you page
+}
+else {
+	echo "fail"; 
+	//redirect to already done page
+}
 
 
 ?>
