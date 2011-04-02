@@ -289,12 +289,19 @@ class TwilioBlaster extends mtekk_admin
 	{
 		global $wp_taxonomies;
 		$this->security();
-		$this->version_check(get_option($this->unique_prefix . '_version'));
 		?>
 		<div class="wrap"><h2><?php _e('Twillio Blaster Settings', 'twilio_blaster'); ?></h2>		
 		<p<?php if($this->_has_contextual_help): ?> class="hide-if-js"<?php endif; ?>><?php 
 			print $this->_get_help_text();			 
 		?></p>
+		<?php
+		//We exit after the version check if there is an action the user needs to take before saving settings
+		if(!$this->version_check(get_option($this->unique_prefix . '_version')))
+		{
+			?></div><?php
+			return;
+		}
+		?>
 		<form action="options-general.php?page=twilio_blaster" method="post" id="<?php echo $this->unique_prefix;?>-options">
 			<?php settings_fields($this->unique_prefix . '_options');?>
 			<div id="hasadmintabs">

@@ -285,10 +285,6 @@ abstract class mtekk_admin
 		check_admin_referer($this->unique_prefix . '_options-options');
 		//Update local options from database
 		$this->opt = $this->get_option($this->unique_prefix . '_options');
-			//Add custom post types
-			$this->find_posttypes($this->opt);
-			//Add custom taxonomy types
-			$this->find_taxonomies($this->opt);
 		//Update our backup options
 		$this->update_option($this->unique_prefix . '_options_bk', $this->opt);
 		//Grab our incomming array (the data is dirty)
