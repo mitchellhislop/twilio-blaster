@@ -31,7 +31,7 @@ $(function() {
       success: function() {
         $('#phone_form').html("<div id='phone_message'></div>");
         $('#phone_message').html("<h2><img src=\"images/check.png\" /></h2>")
-        .append("<p>Successfully submitted!</p>")
+        .append("<p>Successfully submitted! If you ever want to stop updates, text STOP</p>")
         .hide()
         .fadeIn(1500, function() {
           $('#message').append("");
