@@ -26,7 +26,7 @@ Author URI: http://www.mitchellhislop.com
 */
 //Do a PHP version check, require 5.2 or newer
 if(version_compare(phpversion(), '5.2.0', '<'))
-{
+
 	//Only purpose of this function is to echo out the PHP version error
 	function bcn_phpold()
 	{
@@ -312,11 +312,11 @@ class TwilioBlaster extends mtekk_admin
 		?></p>
 		<?php
 		//We exit after the version check if there is an action the user needs to take before saving settings
-/*		if(!$this->version_check(get_option($this->unique_prefix . '_version')))
+		if(!$this->version_check(get_option($this->unique_prefix . '_version')))
 		{
 			?></div><?php
 			return;
-		}*/
+		}
 		?>
 		<form action="options-general.php?page=twilio_blaster" method="post" id="<?php echo $this->unique_prefix;?>-options">
 			<?php settings_fields($this->unique_prefix . '_options');?>
